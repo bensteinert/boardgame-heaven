@@ -1,0 +1,14 @@
+version: '2'
+services:
+    boardgameheaven-mysql:
+        container_name: boardgameheaven-mysql
+        image: mysql:5.7.13
+        # volumes:
+        #     - ~/volumes/jhipster/boardgameHeaven/mysql/:/var/lib/mysql/
+        environment:
+            - MYSQL_USER=root
+            - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+            - MYSQL_DATABASE=boardgameheaven
+        ports:
+            - 3306:3306
+        command: mysqld --lower_case_table_names=1 --skip-ssl
