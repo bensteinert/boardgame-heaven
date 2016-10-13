@@ -1,0 +1,168 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBoardgameLabel" data-translate="boardgameHeavenApp.boardgame.home.createOrEditLabel">Create or edit a Boardgame</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.boardgame.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.boardgame.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.boardgame.name"
+                    required ng-minlength="1" />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.name.$error.minlength" data-translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.minNumberOfPlayers" for="field_minNumberOfPlayers">Min Number Of Players</label>
+            <input type="number" class="form-control" name="minNumberOfPlayers" id="field_minNumberOfPlayers"
+                    ng-model="vm.boardgame.minNumberOfPlayers"
+                    required />
+            <div ng-show="editForm.minNumberOfPlayers.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.minNumberOfPlayers.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.minNumberOfPlayers.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.maxNumberOfPlayers" for="field_maxNumberOfPlayers">Max Number Of Players</label>
+            <input type="number" class="form-control" name="maxNumberOfPlayers" id="field_maxNumberOfPlayers"
+                    ng-model="vm.boardgame.maxNumberOfPlayers"
+                    required />
+            <div ng-show="editForm.maxNumberOfPlayers.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.maxNumberOfPlayers.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.maxNumberOfPlayers.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.minDuration" for="field_minDuration">Min Duration</label>
+            <input type="number" class="form-control" name="minDuration" id="field_minDuration"
+                    ng-model="vm.boardgame.minDuration"
+                    required />
+            <div ng-show="editForm.minDuration.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.minDuration.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.minDuration.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.maxDuration" for="field_maxDuration">Max Duration</label>
+            <input type="number" class="form-control" name="maxDuration" id="field_maxDuration"
+                    ng-model="vm.boardgame.maxDuration"
+                    required />
+            <div ng-show="editForm.maxDuration.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.maxDuration.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.maxDuration.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.minAgePlayer" for="field_minAgePlayer">Min Age Player</label>
+            <input type="number" class="form-control" name="minAgePlayer" id="field_minAgePlayer"
+                    ng-model="vm.boardgame.minAgePlayer"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.difficulty" for="field_difficulty">Difficulty</label>
+            <select class="form-control" name="difficulty" ng-model="vm.boardgame.difficulty" id="field_difficulty">
+                <option value="EASY" data-translate="boardgameHeavenApp.Difficulty.EASY">EASY</option>
+                <option value="INTERMEDIATE" data-translate="boardgameHeavenApp.Difficulty.INTERMEDIATE">INTERMEDIATE</option>
+                <option value="DIFFICULT" data-translate="boardgameHeavenApp.Difficulty.DIFFICULT">DIFFICULT</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.releaseYear" for="field_releaseYear">Release Year</label>
+            <input type="text" class="form-control" name="releaseYear" id="field_releaseYear"
+                    ng-model="vm.boardgame.releaseYear"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.rating" for="field_rating">Rating</label>
+            <input type="number" class="form-control" name="rating" id="field_rating"
+                    ng-model="vm.boardgame.rating"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.boardgame.description"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.boardgame)" ngf-pattern="'image/*'">
+            <label class="control-label" data-translate="boardgameHeavenApp.boardgame.image" for="field_image">Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.boardgame.imageContentType + ';base64,' + vm.boardgame.image}}" style="max-height: 100px;" ng-if="vm.boardgame.image"/>
+                <div ng-if="vm.boardgame.image" class="help-block clearfix">
+                    <span class="pull-left">{{vm.boardgame.imageContentType}}, {{vm.byteSize(vm.boardgame.image)}}</span>
+                    <button ng-click="vm.boardgame.image=null;vm.boardgame.imageContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setImage($file, vm.boardgame)" accept="image/*" data-translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                    ng-model="vm.boardgame.image"
+                     />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                    ng-model="vm.boardgame.imageContentType" />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="boardgameHeavenApp.boardgame.category" for="field_category">Category</label>
+            <select class="form-control" id="field_category" multiple name="category" ng-model="vm.boardgame.categories" ng-options="category as category.id for category in vm.categories track by category.id"></select>
+        </div>
+        <div class="form-group">
+            <label data-translate="boardgameHeavenApp.boardgame.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" multiple name="user" ng-model="vm.boardgame.users" ng-options="user as user.id for user in vm.users track by user.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

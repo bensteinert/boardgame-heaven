@@ -90,6 +90,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
 
+    @ManyToMany
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "boardgame_user",
+               joinColumns = @JoinColumn(name="users_id", referencedColumnName="ID"),
+               inverseJoinColumns = @JoinColumn(name="boardgames_id", referencedColumnName="ID"))
+    private Set<Boardgame> boardgames = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -193,6 +200,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
         this.persistentTokens = persistentTokens;
+    }
+
+    public Set<Boardgame> getBoardgames() {
+        return boardgames;
     }
 
     @Override

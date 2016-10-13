@@ -1,0 +1,85 @@
+<div>
+    <h2 data-translate="boardgameHeavenApp.boardgame.home.title">Boardgames</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="boardgame.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="boardgameHeavenApp.boardgame.home.createLabel">
+                        Create new Boardgame
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="boardgameHeavenApp.boardgame.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="minNumberOfPlayers"><span data-translate="boardgameHeavenApp.boardgame.minNumberOfPlayers">Min Number Of Players</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="maxNumberOfPlayers"><span data-translate="boardgameHeavenApp.boardgame.maxNumberOfPlayers">Max Number Of Players</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="minDuration"><span data-translate="boardgameHeavenApp.boardgame.minDuration">Min Duration</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="maxDuration"><span data-translate="boardgameHeavenApp.boardgame.maxDuration">Max Duration</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="minAgePlayer"><span data-translate="boardgameHeavenApp.boardgame.minAgePlayer">Min Age Player</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="difficulty"><span data-translate="boardgameHeavenApp.boardgame.difficulty">Difficulty</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="releaseYear"><span data-translate="boardgameHeavenApp.boardgame.releaseYear">Release Year</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rating"><span data-translate="boardgameHeavenApp.boardgame.rating">Rating</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="boardgameHeavenApp.boardgame.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="image"><span data-translate="boardgameHeavenApp.boardgame.image">Image</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="boardgame in vm.boardgames track by boardgame.id">
+                    <td><a ui-sref="boardgame-detail({id:boardgame.id})">{{boardgame.id}}</a></td>
+                    <td>{{boardgame.name}}</td>
+                    <td>{{boardgame.minNumberOfPlayers}}</td>
+                    <td>{{boardgame.maxNumberOfPlayers}}</td>
+                    <td>{{boardgame.minDuration}}</td>
+                    <td>{{boardgame.maxDuration}}</td>
+                    <td>{{boardgame.minAgePlayer}}</td>
+                    <td data-translate="{{'boardgameHeavenApp.Difficulty.' + boardgame.difficulty}}">{{boardgame.difficulty}}</td>
+                    <td>{{boardgame.releaseYear}}</td>
+                    <td>{{boardgame.rating}}</td>
+                    <td>{{boardgame.description}}</td>
+                    <td>
+                        <a ng-if="boardgame.image" ng-click="vm.openFile(boardgame.imageContentType, boardgame.image)">
+                            <img data-ng-src="{{'data:' + boardgame.imageContentType + ';base64,' + boardgame.image}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="boardgame.image">{{boardgame.imageContentType}}, {{vm.byteSize(boardgame.image)}}</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="boardgame-detail({id:boardgame.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="boardgame.edit({id:boardgame.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="boardgame.delete({id:boardgame.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>
