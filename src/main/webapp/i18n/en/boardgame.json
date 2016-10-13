@@ -1,0 +1,34 @@
+{
+    "boardgameHeavenApp": {
+        "boardgame" : {
+            "home": {
+                "title": "Boardgames",
+                "createLabel": "Create a new Boardgame",
+                "createOrEditLabel": "Create or edit a Boardgame",
+                "search": "Search for Boardgame"
+            },
+            "created": "A new Boardgame is created with identifier {{ param }}",
+            "updated": "A Boardgame is updated with identifier {{ param }}",
+            "deleted": "A Boardgame is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Boardgame {{ id }}?"
+            },
+            "detail": {
+                "title": "Boardgame"
+            },
+            "name": "Name",
+            "minNumberOfPlayers": "Min Number Of Players",
+            "maxNumberOfPlayers": "Max Number Of Players",
+            "minDuration": "Min Duration",
+            "maxDuration": "Max Duration",
+            "minAgePlayer": "Min Age Player",
+            "difficulty": "Difficulty",
+            "releaseYear": "Release Year",
+            "rating": "Rating",
+            "description": "Description",
+            "image": "Image",
+            "category": "Category",
+            "player": "Player"
+        }
+    }
+}

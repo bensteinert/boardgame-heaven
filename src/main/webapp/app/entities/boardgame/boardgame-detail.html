@@ -1,0 +1,80 @@
+
+<div>
+    <h2><span data-translate="boardgameHeavenApp.boardgame.detail.title">Boardgame</span> {{vm.boardgame.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="boardgameHeavenApp.boardgame.name">Name</span></dt>
+        <dd>
+            <span>{{vm.boardgame.name}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.minNumberOfPlayers">Min Number Of Players</span></dt>
+        <dd>
+            <span>{{vm.boardgame.minNumberOfPlayers}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.maxNumberOfPlayers">Max Number Of Players</span></dt>
+        <dd>
+            <span>{{vm.boardgame.maxNumberOfPlayers}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.minDuration">Min Duration</span></dt>
+        <dd>
+            <span>{{vm.boardgame.minDuration}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.maxDuration">Max Duration</span></dt>
+        <dd>
+            <span>{{vm.boardgame.maxDuration}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.minAgePlayer">Min Age Player</span></dt>
+        <dd>
+            <span>{{vm.boardgame.minAgePlayer}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.difficulty">Difficulty</span></dt>
+        <dd>
+            <span data-translate="{{'boardgameHeavenApp.Difficulty.' + vm.boardgame.difficulty}}">{{vm.boardgame.difficulty}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.releaseYear">Release Year</span></dt>
+        <dd>
+            <span>{{vm.boardgame.releaseYear}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.rating">Rating</span></dt>
+        <dd>
+            <span>{{vm.boardgame.rating}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.description">Description</span></dt>
+        <dd>
+            <span>{{vm.boardgame.description}}</span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.image">Image</span></dt>
+        <dd>
+            <div ng-if="vm.boardgame.image">
+                <a ng-click="vm.openFile(vm.boardgame.imageContentType, vm.boardgame.image)">
+                    <img data-ng-src="{{'data:' + vm.boardgame.imageContentType + ';base64,' + vm.boardgame.image}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.boardgame.imageContentType}}, {{vm.byteSize(vm.boardgame.image)}}
+            </div>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.category">Category</span></dt>
+        <dd>
+            <span ng-repeat="category in vm.boardgame.categories">
+                <a ui-sref="category-detail({id: category.id})">{{category.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="boardgameHeavenApp.boardgame.player">Player</span></dt>
+        <dd>
+            <span ng-repeat="player in vm.boardgame.players">
+                <a ui-sref="player-detail({id: player.id})">{{player.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="boardgame-detail.edit({id:vm.boardgame.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

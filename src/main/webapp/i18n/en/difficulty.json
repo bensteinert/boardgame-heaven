@@ -1,0 +1,10 @@
+{
+    "boardgameHeavenApp": {
+        "Difficulty" : {
+            "null": "",
+            "EASY": "EASY",
+            "INTERMEDIATE": "INTERMEDIATE",
+            "DIFFICULT": "DIFFICULT"
+        }
+    }
+}

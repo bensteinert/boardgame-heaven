@@ -37,5 +37,33 @@
            timeToLiveSeconds="3600">
     </cache>
     
+    <cache name="com.comsysto.boardgameheaven.domain.Boardgame"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="com.comsysto.boardgameheaven.domain.Boardgame.categories"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="com.comsysto.boardgameheaven.domain.Boardgame.players"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="com.comsysto.boardgameheaven.domain.Category"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="com.comsysto.boardgameheaven.domain.Category.boardgames"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="com.comsysto.boardgameheaven.domain.Player"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
+    <cache name="com.comsysto.boardgameheaven.domain.Player.boardgames"
+                               timeToLiveSeconds="3600">
+                        </cache>
+                        
     <!-- jhipster-needle-ehcache-add-entry -->
 </ehcache>

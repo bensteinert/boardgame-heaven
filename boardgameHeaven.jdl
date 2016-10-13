@@ -1,0 +1,40 @@
+entity Boardgame {
+    name String required minlength(1),
+    minNumberOfPlayers Integer required,
+    maxNumberOfPlayers Integer required,
+    minDuration Integer required,
+    maxDuration Integer required,
+	minAgePlayer Integer,
+    difficulty Difficulty,
+    releaseYear String,
+	rating Integer,
+	description String,
+    image ImageBlob
+}
+
+entity Category {
+	name String required,
+}
+
+entity Player {
+	nickname String required,
+}
+
+enum Difficulty {
+    EASY, INTERMEDIATE, DIFFICULT
+}
+
+relationship OneToOne {
+	Player{user} to User{player}
+}
+
+relationship ManyToMany {
+	Boardgame{category} to Category{boardgame}
+}
+
+relationship ManyToMany {
+	Boardgame{player} to Player{boardgame}
+}
+
+// Set pagination options
+paginate Boardgame, Category with pagination
