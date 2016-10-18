@@ -6,7 +6,7 @@
             "otherEntityRelationshipName": "boardgame",
             "relationshipName": "category",
             "otherEntityName": "category",
-            "otherEntityField": "id",
+            "otherEntityField": "name",
             "ownerSide": true
         },
         {
@@ -14,7 +14,7 @@
             "otherEntityRelationshipName": "boardgame",
             "relationshipName": "user",
             "otherEntityName": "user",
-            "otherEntityField": "id",
+            "otherEntityField": "login",
             "ownerSide": true
         }
     ],
@@ -71,7 +71,13 @@
         },
         {
             "fieldName": "rating",
-            "fieldType": "Integer"
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 1,
+            "fieldValidateRulesMax": 5
         },
         {
             "fieldName": "description",
@@ -83,7 +89,7 @@
             "fieldTypeBlobContent": "image"
         }
     ],
-    "changelogDate": "20161013135214",
+    "changelogDate": "20161014104454",
     "entityTableName": "boardgame",
     "dto": "no",
     "pagination": "pagination",

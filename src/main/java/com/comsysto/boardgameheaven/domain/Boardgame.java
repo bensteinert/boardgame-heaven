@@ -57,6 +57,8 @@ public class Boardgame implements Serializable {
     @Column(name = "release_year")
     private String releaseYear;
 
+    @Min(value = 1)
+    @Max(value = 5)
     @Column(name = "rating")
     private Integer rating;
 
