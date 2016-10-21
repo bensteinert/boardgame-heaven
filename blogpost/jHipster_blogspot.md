@@ -38,7 +38,7 @@ Dazu benötige ich allerdings noch einiges andere:
 * `npm` einen Package-Manager für JavaScript, über dem man jede Menge Module
 installieren kann
 * `bower`, ein weiterer JavaScript Package-Manager
-..Dieser kann bereits mit `npm` installiert werden: `npm install -g bower`
+...Dieser kann bereits mit `npm` installiert werden: `npm install -g bower`
 * `gulp` ein Buildtool, ich nenne es jetzt mal `make` für JavaScript
 (`npm install -g gulp-cli`)
 * Yeoman der über das Kommando `yo` aufgerufen wird (`npm install -g yo`)
@@ -63,7 +63,8 @@ Ich habe eine Beispiel-App gebaut, die ich *Boardgame Heaven* genannt habe.
 Bei der Konfiguration habe ich mich meistens für die Default-Option entschieden.
 
 Nachdem man alle Fragen beantwortet hat, laden `npm` und `bower` die nötigen
-Pakete aus dem Internet und etwa 3 Minuten hat man eine fertige Applikation.
+Pakete aus dem Internet und etwa 3 Minuten später hat man eine fertige
+Applikation.
 
 Ein Vorteil von Spring Boot ist, dass man gleich einen eingebetteten Webserver
 dabei hat, der gestartet wird, wenn man die App startet. Wenn man dann also
@@ -100,7 +101,7 @@ Sprache verstellen.
 
 ![alt text](./pics/language_drop_down.png "Sprachwahl Drop Down")
 
-Hat man sich als *user* eingeloggt kann man sein Profil anpassen, sein Password
+Hat man sich als *user* eingeloggt kann man sein Profil anpassen, sein Passwort
 ändern und seine Sessions einsehen. Es gibt auch einen zusätzlichen Reiter
 *Entitäten*, mehr zu diesen gleich.
 
@@ -108,19 +109,19 @@ Wenn man sich allerdings als Admin einloggt, kann man schon ein bisschen
 mehr tun. Unter dem Reiter *Administration* findet sich:
 
 1. User Verwaltung
-...![alt text](./pics/user_management.png "User Management")
+![alt text](./pics/user_management.png "User Management")
 2. Status der Applikation
-...![alt text](./pics/health.png "Status")
+![alt text](./pics/health.png "Status")
 3. Konfiguration der Applikation
-...![alt text](./pics/configs.png "Konfiguration")
+![alt text](./pics/configs.png "Konfiguration")
 4. Metriken zur Applikation
-...![alt text](./pics/metrics.png "Metriken")
+![alt text](./pics/metrics.png "Metriken")
 5. Übersicht über die Login-Versuche (erfolgreich/nicht erfolgreich)
-...![alt text](./pics/audits.png "Audits")
+![alt text](./pics/audits.png "Audits")
 6. Übersicht über die Logger mit Konfiguration der Log-Level
-...![alt text](./pics/logger.png "Logger")
+![alt text](./pics/logger.png "Logger")
 7. Übersicht über die REST-API der App (bereitgestellt von [swagger](http://swagger.io/))
-...![alt text](./pics/swagger_api.png "Swagger")
+![alt text](./pics/swagger_api.png "Swagger")
 8. Interface zur Datenbank
 
 Das ist jetzt zwar schon ganz schön viel, aber so richtig was damit machen
@@ -134,11 +135,11 @@ nicht nur eine Möglichkeit, sondern gleich mehrere.
 Die einfachste ist der Entitäten-Generator, der mit
 `yo jhipster:entity irgendein_name` aufgerufen wird. Dieser erzeugt eine
 Entität mit dem gewählten Namen und läßt einen Felder und, bei SQL-Datenbanken,
-auch Beziehungen hinzufügen läßt. Wie bei den anderen Möglichkeiten auch, kann
-man beim Generieren bereits Constrains angeben kann (ob der Feld gesetzt sein
+auch Beziehungen hinzufügen. Wie bei den anderen Möglichkeiten auch, kann
+man beim Generieren bereits Constrains angeben (ob der Feld gesetzt sein
 muss, minimale/maximale Länge bei Strings oder min/max Werte für Integer).
 
-Beim erzeugen von Beziehungen muss man beachten, dass zuerst die Entität
+Beim Erzeugen von Beziehungen muss man beachten, dass zuerst die Entität
 generiert werden muss, der die Beziehung "gehört". Was vielleicht auch
 überrascht, wählt man beim Erzeugen der App eine NoSQL Datenbank (unterstützt
 werden MongoDB und Cassandra) kann jHipster keine Beziehungen generieren.
@@ -169,9 +170,12 @@ Zu jeder Entität generiert jHipster:
 * Einen List-View mit einer Liste der bisher gespeicherten Instanzen (Pagination
 ist konfigurierbar), wobei jeder Eintrag drei Buttons hat, "Details", "Bearbeiten"
 und "Löschen"
-...![alt text](./pics/boardgame_list_view.png "List-View")
+
+![alt text](./pics/boardgame_list_view.png "List-View")
+
 * Einen Detail-View zur Ansicht einer Instanz
-...![alt text](./pics/boardgame_detail_view.png)
+
+![alt text](./pics/boardgame_detail_view.png)
 
 ###Wie zeige ich meine App der Welt?
 Mit ein paar einfachen Befehlen kann man die Applikation für Produktion bauen
@@ -188,7 +192,10 @@ installieren
 
 Das war's schon. Mit `heroku logs --tail` kann man sich das Log anschauen. Es
 kann sein, das die Applikation nicht korrekt startet, weil sie zu lange braucht
-und der Timeout bei Heroku ziemlich klein ist (60 Sekunden).
+und der Timeout bei Heroku ziemlich klein ist (60 Sekunden). Dann einfach noch
+mal starten, bei mir war sie beim zweiten Mal schneller und hat korrekt
+gebootet. Man kann auch ein Ticket bei Heroku aufmachen und sie bitten den
+Timeout zu vergrößern.
 
 ###Quellen
 
