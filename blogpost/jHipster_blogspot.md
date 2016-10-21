@@ -20,11 +20,9 @@ Alles klar, oder?
 
 Hier eine kleine Erklärung der Bestandteile:
 
-* Yeoman ist ein Tool um Applikationen oder Teile davon zu generieren
-
-...Was dann konkret generiert wird, hängt vom tatsächlichen Generator ab, in
-unserem Fall (jHipster) eine Web-App mit Angular und Spring Boot
-
+* Yeoman ist ein Tool um Applikationen oder Teile davon zu generieren; Was dann
+konkret generiert wird, hängt vom tatsächlichen Generator ab, in unserem Fall
+(jHipster) eine Web-App mit Angular und Spring Boot
 * Bootstrap ist ein HTML/CSS/JavaScript Framework und bietet zum Beispiel
 Templates für hübsche HTML Seiten
 * AngularJS ist ein JavaScript Framework für den Frontend-Teil von Web-Apps
@@ -39,10 +37,8 @@ Dazu benötige ich allerdings noch einiges andere:
 
 * `npm` einen Package-Manager für JavaScript, über dem man jede Menge Module
 installieren kann
-* `bower`, ein weiterer JavaScript Package-Manager
-
-...Dieser kann bereits mit `npm` installiert werden: `npm install -g bower`
-
+* `bower`, ein weiterer JavaScript Package-Manager (`bower` kann bereits mit
+`npm` installiert werden: `npm install -g bower`)
 * `gulp` ein Buildtool, ich nenne es jetzt mal `make` für JavaScript
 (`npm install -g gulp-cli`)
 * Yeoman der über das Kommando `yo` aufgerufen wird (`npm install -g yo`)
