@@ -79,9 +79,11 @@ ankucken:
 ----------------------------------------------------------
 ```
 
+*Du erklärst so toll Gulp, Bower und Yeoman. Gradle fehlt aber :) Ist vielleicht erwähnenswert, weil es all die Arbeit in der Java Welt macht und sich auch noch slebst herunterlädt ;)*
+
 Man hat auch die Möglichkeit in einem zweiten Terminal Fenster `gulp` zu
 starten. `gulp` verwendet [*Browser-Sync*](https://www.browsersync.io/),
-ein Tool, dass den Browser automatisch refreshed wenn man etwas an der
+ein Tool, das den Browser automatisch refreshed wenn man etwas an der
 App geändert hat. Startet man nun `gulp` öffnet sich automatisch ein Tab
 im Browser und zeigt die generierte App an.
 
@@ -144,14 +146,14 @@ Die einfachste ist der Entitäten-Generator, der mit
 `yo jhipster:entity irgendein_name` aufgerufen wird. Dieser erzeugt eine
 Entität mit dem gewählten Namen und läßt einen Felder und, bei SQL-Datenbanken,
 auch Beziehungen hinzufügen. Wie bei den anderen Möglichkeiten auch, kann
-man beim Generieren bereits Constrains angeben (ob der Feld gesetzt sein
+man beim Generieren bereits Constraints angeben (ob das Feld gesetzt sein
 muss, minimale/maximale Länge bei Strings oder min/max Werte für Integer).
 
 Beim Erzeugen von Beziehungen muss man beachten, dass zuerst die Entität
 generiert werden muss, der die Beziehung "gehört". Was vielleicht auch
-überrascht, wählt man beim Erzeugen der App eine NoSQL Datenbank (unterstützt
+überrascht: wählt man beim Erzeugen der App eine NoSQL Datenbank (unterstützt
 werden MongoDB und Cassandra) kann
-[jHipster keine Beziehungen generieren](https://github.com/jhipster/generator-jhipster/issues/901).
+[jHipster derzeit keine Beziehungen generieren](https://github.com/jhipster/generator-jhipster/issues/901).
 
 ####[`jdl`](https://jhipster.github.io/jdl/)
 Eine weitere Möglichkeit Entitäten zu erzeugen ist `jdl`, der
@@ -193,8 +195,11 @@ und "Löschen"
    ![alt text](./pics/boardgame_detail_view.png)
 
 ###Wie zeige ich meine App der Welt?
+
+*Kubernetes und Cloud Foundry sind streng genommen keine Cloud-Anbieter, sondern eher Platformen, die man sich wo installiert, zum Beispiel bei einem Cloud-Anbieter. Hier vielleicht einfach generell Plattform schreiben.*
+
 Mit ein paar einfachen Befehlen kann man die Applikation für Produktion bauen
-und bei einen Cloud-Anbieter seiner Wahl ([Heroku](https://www.heroku.com/),
+und bei einem Cloud-Anbieter seiner Wahl ([Heroku](https://www.heroku.com/),
 [Cloud Foundry](https://www.cloudfoundry.org/),
 [Kubernetes](http://kubernetes.io/), [AWS](https://aws.amazon.com/)) deployen.
 Ich hab das einmal bei [Heroku](https://jhipster.github.io/heroku/) ausprobiert:
@@ -206,7 +211,7 @@ installieren
 3. `yo jhipster:heroku`
 
 Das war's schon. Mit `heroku logs --tail` kann man sich das Log anschauen. Es
-kann sein, das die Applikation
+kann sein, dass die Applikation
 [nicht korrekt startet](https://github.com/jhipster/generator-jhipster/issues/1763),
 weil sie zu lange braucht und der Timeout bei Heroku ziemlich klein ist
 ([60 Sekunden](https://devcenter.heroku.com/articles/limits#boot-timeout)). Dann einfach noch
@@ -222,6 +227,8 @@ haben will, lohnt es sich jHipster zu benutzen um den initialen Anfangsaufwand
 zu minimieren. Nach dem Erzeugen macht es aber Sinn die App dann von Hand weiter
 zu entwickeln. Auch wenn man beispielsweise nachträglich weitere Entitäten generieren
 kann, muss man doch einiges von Hand anpassen, damit wieder alles zusammen passt.
+
+*Ein Punkt wäre noch interessant aus meiner Sicht: Ist jHipster ein guter Einstieg in die Java/Web Welt oder ist es zuviel auf einmal aus deiner Sicht? Was ist dein Tipp für Leute, die deinen Artikel lesen und jetzt loslegen wollen?*
 
 ###Quellen
 
